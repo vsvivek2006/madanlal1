@@ -102,7 +102,7 @@ const Checkout = () => {
               className="w-full bg-[#25D366] text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 hover:bg-[#1ebd57] transition-all shadow-lg"
             >
               <Send size={20} />
-              Confirm Order on WhatsApp
+             Pay Now 
             </button>
           </div>
         </div>
