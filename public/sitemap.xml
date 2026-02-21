@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://mandlal.shop/</loc>
+    <lastmod>2026-02-19</lastmod>
+    <priority>1.0</priority>
+    <changefreq>daily</changefreq>
+  </url>
+
+  <url>
+    <loc>https://mandlal.shop/shop</loc>
+    <lastmod>2026-02-19</lastmod>
+    <priority>0.9</priority>
+    <changefreq>daily</changefreq>
+  </url>
+
+  <url>
+    <loc>https://mandlal.shop/about</loc>
+    <lastmod>2026-02-19</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://mandlal.shop/contact</loc>
+    <lastmod>2026-02-19</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://mandlal.shop/privacy</loc>
+    <lastmod>2026-02-19</lastmod>
+    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://mandlal.shop/terms</loc>
+    <lastmod>2026-02-19</lastmod>
+    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://mandlal.shop/refund-policy</loc>
+    <lastmod>2026-02-19</lastmod>
+    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://mandlal.shop/shipping-return</loc>
+    <lastmod>2026-02-19</lastmod>
+    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://mandlal.shop/onboarding-agreement</loc>
+    <lastmod>2026-02-19</lastmod>
+    <priority>0.4</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+</urlset>
