@@ -44,8 +44,8 @@ Hello Madanlal Team! I am interested in your products (Chips/Namkeen). Please sh
     {
       icon: <Phone className="h-6 w-6" />,
       title: 'Call / WhatsApp',
-      content: '+91 89556 11943',
-      link: 'tel:+918955611943'
+      content: '+917665386165',
+      link: 'tel:+917665386165'
     },
     {
       icon: <Mail className="h-6 w-6" />,
