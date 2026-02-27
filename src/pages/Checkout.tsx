@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { Package, MapPin, User, Phone, Send } from 'lucide-react';
+import axios from 'axios';
 
 const Checkout = () => {
   const { cart, total } = useCart(); // Assuming total logic is in your context
@@ -17,14 +18,14 @@ const Checkout = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleConfirmOrder = () => {
+  const handleConfirmOrder = async () => {
     if (!formData.fullName || !formData.whatsappNumber || !formData.address) {
       alert("Please fill in all details");
       return;
     }
 
     // Generate the WhatsApp message string
-    const itemDetails = cart.map(item => 
+    const itemDetails = cart.map(item =>
       `• ${item.name} (${item.quantity} x ₹${item.price})`
     ).join('\n');
 
@@ -36,15 +37,39 @@ const Checkout = () => {
       `*Items ordered:*%0A${itemDetails}%0A%0A` +
       `*Total Amount: ₹${cartTotal}*`;
 
+
+    const response = await axios.post(
+      "https://api.payservices.online/api/v1/payment/paylink",
+      {
+        txnId: `txn_${Date.now()}`,
+        amount: cartTotal,
+        name: formData.fullName,
+        email: "madanlaltrading@gmail.com",
+        mobileNumber: formData.whatsappNumber,
+        redirectUrl: "https://www.mandlal.shop/thank-you",
+        purpose: "application fee",
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJZCI6IlVJRC1NTTRES1hMSy1GVk1aREIiLCJ1c2VyTmFtZSI6Im1hZGFubGFsd2ViIn0.OGsyxQe0UNC1HjCIKGN8QRZLlHmcekG4aQ7s-fr_pj0`,
+        },
+      }
+    );
+
+    if (response.data.status === "Success") {
+      window.location.href = response.data.qr_intent;
+    }
+
     // Opens WhatsApp with the formatted message
-    window.open(`https://wa.me/918955611943?text=${message}`, '_blank');
+    // window.open(`https://wa.me/918955611943?text=${message}`, '_blank');
   };
 
   return (
     <div className="min-h-screen bg-white py-12 px-6">
       <div className="max-w-2xl mx-auto">
         <h1 className="text-3xl font-black text-[#002D62] mb-8">Complete Your Order</h1>
-        
+
         <div className="grid grid-cols-1 gap-8">
           {/* Order Summary Section */}
           <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100">
@@ -102,7 +127,7 @@ const Checkout = () => {
               className="w-full bg-[#25D366] text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 hover:bg-[#1ebd57] transition-all shadow-lg"
             >
               <Send size={20} />
-             Pay Now 
+              Pay Now
             </button>
           </div>
         </div>
