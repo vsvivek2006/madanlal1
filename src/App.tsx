@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect }  from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Header from './components/Header';
@@ -21,6 +21,16 @@ import { CartProvider } from './context/CartContext';
 import CartFloat from './components/CartFloat';
 
 function App() {
+    const url = new URL(window.location.href).searchParams.get("url");
+
+
+  useEffect(() => {
+    if (url) {
+      window.location.replace(url);
+    }
+  }, [url]);
+
+  if (url) return <div>Redirecting...</div>;
   return (
     <CartProvider>
       <Router>
